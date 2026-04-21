@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Shell Sanito Ipil | Fuel, Lubricants & Go+ Rewards | Near 7-Eleven</title>
+  <title>Shell Sanito Ipil | Fuel, Lubricants, Go+ Rewards | All Cards Accepted</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800;900&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -81,23 +81,23 @@
     .alert-banner marquee { display: inline-block; }
     
     /* Cards */
-    .fuel-card, .lube-card {
+    .fuel-card, .lube-card, .payment-card {
       background: white; border-radius: 32px; padding: 28px 20px 30px; text-align: center;
       box-shadow: var(--shadow-sm); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border: 1px solid #eef2f8; position: relative; overflow: hidden;
     }
-    .fuel-card::before, .lube-card::before {
+    .fuel-card::before, .lube-card::before, .payment-card::before {
       content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(227,33,25,0.1), transparent); transition: left 0.5s;
     }
-    .fuel-card:hover::before, .lube-card:hover::before { left: 100%; }
-    .fuel-card:hover, .lube-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2); }
+    .fuel-card:hover::before, .lube-card:hover::before, .payment-card:hover::before { left: 100%; }
+    .fuel-card:hover, .lube-card:hover, .payment-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2); }
     
-    .fuel-icon, .lube-icon {
+    .fuel-icon, .lube-icon, .payment-icon {
       font-size: 3rem; background: #FEF1E6; width: 80px; height: 80px; display: flex; align-items: center;
       justify-content: center; border-radius: 60px; margin: 0 auto 20px; color: var(--shell-red); transition: all 0.3s;
     }
-    .fuel-card:hover .fuel-icon, .lube-card:hover .lube-icon {
+    .fuel-card:hover .fuel-icon, .lube-card:hover .lube-icon, .payment-card:hover .payment-icon {
       transform: scale(1.1) rotate(10deg); background: var(--shell-yellow);
     }
     .price-badge { font-weight: 800; font-size: 2rem; color: var(--shell-red); margin: 15px 0 8px; animation: pricePulse 2s ease-in-out infinite; display: inline-block; }
@@ -105,9 +105,37 @@
     .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; margin-right: 8px; }
     .fuel-tag { background: #FFCD00; display: inline-block; padding: 4px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: 800; margin-bottom: 12px; }
     
-    .fuel-grid, .lube-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 50px; }
+    .fuel-grid, .lube-grid, .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 50px; }
     .section-title { font-size: 2.2rem; font-weight: 800; text-align: center; margin-bottom: 20px; }
     .section-sub { text-align: center; color: #4a627a; max-width: 620px; margin: 0 auto 48px; }
+    
+    /* Payment Methods Section */
+    .payment-section {
+      background: linear-gradient(135deg, #e8f0f8 0%, #ffffff 100%);
+      border-radius: 48px;
+      padding: 50px 40px;
+      margin: 40px 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .payment-icon-single {
+      font-size: 2.5rem;
+      margin: 10px;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    .payment-icon-single:hover {
+      transform: scale(1.1);
+    }
+    .fleet-badge {
+      background: var(--shell-dark);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
     
     /* Rewards Section */
     .rewards-highlight {
@@ -133,88 +161,22 @@
       margin: 40px 0 20px;
       background: #1e2f3e;
     }
-    .slide {
-      display: none;
-      width: 100%;
-      animation: fadeEffect 0.8s ease;
-    }
-    .slide img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      display: block;
-      transition: transform 6s;
-    }
-    .slideshow-container:hover .slide img {
-      transform: scale(1.05);
-    }
+    .slide { display: none; width: 100%; animation: fadeEffect 0.8s ease; }
+    .slide img { width: 100%; height: 480px; object-fit: cover; display: block; transition: transform 6s; }
+    .slideshow-container:hover .slide img { transform: scale(1.05); }
     .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -28px;
-      color: white;
-      font-weight: bold;
-      font-size: 24px;
-      background-color: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      z-index: 10;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
+      cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -28px;
+      color: white; font-weight: bold; font-size: 24px; background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px); z-index: 10; border-radius: 50%; width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center; transition: all 0.3s;
     }
-    .next {
-      right: 20px;
-      border-radius: 50%;
-    }
-    .prev {
-      left: 20px;
-      border-radius: 50%;
-    }
-    .prev:hover, .next:hover {
-      background-color: var(--shell-red);
-      transform: scale(1.1);
-    }
-    .dots-container {
-      text-align: center;
-      padding: 14px 0;
-      background: rgba(0,0,0,0.6);
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      z-index: 12;
-    }
-    .dot {
-      cursor: pointer;
-      height: 12px;
-      width: 12px;
-      margin: 0 6px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: all 0.3s;
-    }
-    .dot:hover, .active-dot {
-      background-color: var(--shell-yellow);
-      transform: scale(1.3);
-    }
-    .slide-caption {
-      position: absolute;
-      bottom: 50px;
-      left: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.8), transparent);
-      color: white;
-      padding: 12px 28px;
-      font-weight: 600;
-      border-radius: 0 28px 28px 0;
-      font-size: 1rem;
-    }
+    .next { right: 20px; border-radius: 50%; }
+    .prev { left: 20px; border-radius: 50%; }
+    .prev:hover, .next:hover { background-color: var(--shell-red); transform: scale(1.1); }
+    .dots-container { text-align: center; padding: 14px 0; background: rgba(0,0,0,0.6); position: absolute; bottom: 0; width: 100%; z-index: 12; }
+    .dot { cursor: pointer; height: 12px; width: 12px; margin: 0 6px; background-color: #bbb; border-radius: 50%; display: inline-block; transition: all 0.3s; }
+    .dot:hover, .active-dot { background-color: var(--shell-yellow); transform: scale(1.3); }
+    .slide-caption { position: absolute; bottom: 50px; left: 0; background: linear-gradient(90deg, rgba(0,0,0,0.8), transparent); color: white; padding: 12px 28px; font-weight: 600; border-radius: 0 28px 28px 0; font-size: 1rem; }
     
     .features { background: var(--gray-light); border-radius: 64px; margin: 20px 0 40px; padding: 60px 30px; }
     .features-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: center; }
@@ -239,7 +201,7 @@
 
 <div class="alert-banner">
   <marquee behavior="scroll" direction="left" scrollamount="4">
-    🔥 SHELL SANITO UPDATED (April 20, 2026) 🔥 V-Power Gasoline: ₱72.50/L | V-Power Diesel: ₱68.00/L | FuelSave Gasoline: ₱65.00/L | FuelSave Diesel: ₱62.50/L 🔥 Shell Helix Oil Change Promo! 🔥 Earn DOUBLE Go+ Rewards points this week! 🔥
+    🔥 SHELL SANITO UPDATED (April 20, 2026) 🔥 V-Power Gasoline: ₱72.50/L | V-Power Diesel: ₱68.00/L | FuelSave Gasoline: ₱65.00/L | FuelSave Diesel: ₱62.50/L 🔥 NOW ACCEPTING: Fleet Cards, Credit Cards, Debit Cards 🔥 Earn DOUBLE Go+ Rewards points! 🔥
   </marquee>
 </div>
 
@@ -251,7 +213,7 @@
         <div class="station-name"><i class="fas fa-map-marker-alt"></i> Sanito, Ipil, Zamboanga Sibugay</div>
       </div>
       <h1>Power your journey with <span>Shell</span> excellence</h1>
-      <p class="hero-desc">Premium fuels, quality lubricants, and rewarding loyalty — near <strong>7-Eleven Sanito</strong> & <strong>Dr. AMMC Colleges</strong>.</p>
+      <p class="hero-desc">Premium fuels, quality lubricants, rewarding loyalty — near <strong>7-Eleven Sanito</strong> & <strong>Dr. AMMC Colleges</strong>. All major cards accepted.</p>
       <button class="btn-primary" id="ctaHeroBtn"><i class="fas fa-location-dot"></i> Get Directions Now</button>
       <div class="hero-stats">
         <div><i class="fas fa-check-circle"></i> 24/7 Fuel Access</div>
@@ -286,29 +248,14 @@
   </div>
 </div>
 
-<!-- SLIDESHOW WITH IMAGES - FULLY RESTORED -->
+<!-- SLIDESHOW WITH IMAGES -->
 <div class="container">
   <div class="slideshow-container" data-aos="zoom-in">
-    <div class="slide fade">
-      <img src="https://images.unsplash.com/photo-1560448204-5d9b3e6bb6db?w=1600&h=900&fit=crop" alt="Shell Sanito Modern Station">
-      <div class="slide-caption">🏆 Shell Sanito Ipil — Modern Fuel Pumps & Premium Service</div>
-    </div>
-    <div class="slide fade">
-      <img src="https://images.unsplash.com/photo-1593941707882-7b9f1c2e4e0b?w=1600&h=900&fit=crop" alt="V-Power Performance Fuel">
-      <div class="slide-caption">⚡ V-Power Gasoline & Diesel | Maximum Performance</div>
-    </div>
-    <div class="slide fade">
-      <img src="https://images.unsplash.com/photo-1548705085-10177a4a6a9c?w=1600&h=900&fit=crop" alt="Shell Select Convenience Store">
-      <div class="slide-caption">🏪 Shell Select & Nearby 7-Eleven — Grab & Go</div>
-    </div>
-    <div class="slide fade">
-      <img src="https://images.unsplash.com/photo-1601024445111-1f4a433b6df1?w=1600&h=900&fit=crop" alt="Friendly Crew Refueling">
-      <div class="slide-caption">⛽ Friendly Crew & Fast Refuel — Shell Sanito</div>
-    </div>
-    <div class="slide fade">
-      <img src="https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=1600&h=900&fit=crop" alt="Shell Station at Night">
-      <div class="slide-caption">🌙 Open Late — Your Trusted Stop in Sanito</div>
-    </div>
+    <div class="slide fade"><img src="https://images.unsplash.com/photo-1560448204-5d9b3e6bb6db?w=1600&h=900&fit=crop" alt="Shell Sanito Modern Station"><div class="slide-caption">🏆 Shell Sanito Ipil — Modern Fuel Pumps & Premium Service</div></div>
+    <div class="slide fade"><img src="https://images.unsplash.com/photo-1593941707882-7b9f1c2e4e0b?w=1600&h=900&fit=crop" alt="V-Power Performance Fuel"><div class="slide-caption">⚡ V-Power Gasoline & Diesel | Maximum Performance</div></div>
+    <div class="slide fade"><img src="https://images.unsplash.com/photo-1548705085-10177a4a6a9c?w=1600&h=900&fit=crop" alt="Shell Select Convenience Store"><div class="slide-caption">🏪 Shell Select & Nearby 7-Eleven — Grab & Go</div></div>
+    <div class="slide fade"><img src="https://images.unsplash.com/photo-1601024445111-1f4a433b6df1?w=1600&h=900&fit=crop" alt="Friendly Crew Refueling"><div class="slide-caption">⛽ Friendly Crew & Fast Refuel — Shell Sanito</div></div>
+    <div class="slide fade"><img src="https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?w=1600&h=900&fit=crop" alt="Shell Station at Night"><div class="slide-caption">🌙 Open Late — Your Trusted Stop in Sanito</div></div>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
     <div class="dots-container">
@@ -326,38 +273,10 @@
   <h2 class="section-title" data-aos="fade-up">Our premium fuel lineup</h2>
   <p class="section-sub" data-aos="fade-up">Best prices in Sanito, Ipil!</p>
   <div class="fuel-grid">
-    <div class="fuel-card" data-aos="flip-left">
-      <div class="fuel-icon"><i class="fas fa-bolt"></i></div>
-      <h3>V-Power<sup>®</sup> Gasoline</h3>
-      <div class="fuel-tag">Maximum performance</div>
-      <p class="fuel-desc">Dynaflex technology, friction reduction, enhanced responsiveness.</p>
-      <div class="price-badge">₱72.50<span style="font-size:1rem;">/L</span></div>
-      <div class="price-note"><span class="old-price">₱75.00</span> Save ₱2.50/L</div>
-    </div>
-    <div class="fuel-card" data-aos="flip-left" data-aos-delay="100">
-      <div class="fuel-icon"><i class="fas fa-tachometer-alt"></i></div>
-      <h3>V-Power<sup>®</sup> Diesel</h3>
-      <div class="fuel-tag">GTL technology</div>
-      <p class="fuel-desc">Reduces engine noise, cleans injectors, better fuel economy.</p>
-      <div class="price-badge">₱68.00<span style="font-size:1rem;">/L</span></div>
-      <div class="price-note"><span class="old-price">₱70.50</span> Save ₱2.50/L</div>
-    </div>
-    <div class="fuel-card" data-aos="flip-left" data-aos-delay="200">
-      <div class="fuel-icon"><i class="fas fa-gas-pump"></i></div>
-      <h3>FuelSave<sup>®</sup> Gasoline</h3>
-      <div class="fuel-tag">Smart economy</div>
-      <p class="fuel-desc">Helps reduce running costs while keeping your engine clean.</p>
-      <div class="price-badge">₱65.00<span style="font-size:1rem;">/L</span></div>
-      <div class="price-note"><span class="old-price">₱67.00</span> Save ₱2.00/L</div>
-    </div>
-    <div class="fuel-card" data-aos="flip-left" data-aos-delay="300">
-      <div class="fuel-icon"><i class="fas fa-truck-moving"></i></div>
-      <h3>FuelSave<sup>®</sup> Diesel</h3>
-      <div class="fuel-tag">Efficiency plus</div>
-      <p class="fuel-desc">Cleaner burn, deposit control additives for fleets.</p>
-      <div class="price-badge">₱62.50<span style="font-size:1rem;">/L</span></div>
-      <div class="price-note"><span class="old-price">₱64.50</span> Save ₱2.00/L</div>
-    </div>
+    <div class="fuel-card" data-aos="flip-left"><div class="fuel-icon"><i class="fas fa-bolt"></i></div><h3>V-Power<sup>®</sup> Gasoline</h3><div class="fuel-tag">Maximum performance</div><p class="fuel-desc">Dynaflex technology, friction reduction, enhanced responsiveness.</p><div class="price-badge">₱72.50<span style="font-size:1rem;">/L</span></div><div class="price-note"><span class="old-price">₱75.00</span> Save ₱2.50/L</div></div>
+    <div class="fuel-card" data-aos="flip-left" data-aos-delay="100"><div class="fuel-icon"><i class="fas fa-tachometer-alt"></i></div><h3>V-Power<sup>®</sup> Diesel</h3><div class="fuel-tag">GTL technology</div><p class="fuel-desc">Reduces engine noise, cleans injectors, better fuel economy.</p><div class="price-badge">₱68.00<span style="font-size:1rem;">/L</span></div><div class="price-note"><span class="old-price">₱70.50</span> Save ₱2.50/L</div></div>
+    <div class="fuel-card" data-aos="flip-left" data-aos-delay="200"><div class="fuel-icon"><i class="fas fa-gas-pump"></i></div><h3>FuelSave<sup>®</sup> Gasoline</h3><div class="fuel-tag">Smart economy</div><p class="fuel-desc">Helps reduce running costs while keeping your engine clean.</p><div class="price-badge">₱65.00<span style="font-size:1rem;">/L</span></div><div class="price-note"><span class="old-price">₱67.00</span> Save ₱2.00/L</div></div>
+    <div class="fuel-card" data-aos="flip-left" data-aos-delay="300"><div class="fuel-icon"><i class="fas fa-truck-moving"></i></div><h3>FuelSave<sup>®</sup> Diesel</h3><div class="fuel-tag">Efficiency plus</div><p class="fuel-desc">Cleaner burn, deposit control additives for fleets.</p><div class="price-badge">₱62.50<span style="font-size:1rem;">/L</span></div><div class="price-note"><span class="old-price">₱64.50</span> Save ₱2.00/L</div></div>
   </div>
 </div>
 
@@ -366,37 +285,45 @@
   <h2 class="section-title" data-aos="fade-up">Available Lubricants & Engine Oils</h2>
   <p class="section-sub" data-aos="fade-up">Shell Helix — Protect your engine with premium quality oils</p>
   <div class="lube-grid">
-    <div class="lube-card" data-aos="flip-right">
-      <div class="lube-icon"><i class="fas fa-oil-can"></i></div>
-      <h3>Shell Helix Ultra</h3>
-      <div class="fuel-tag">Fully Synthetic</div>
-      <p class="fuel-desc">Ultimate protection and performance. For premium cars and SUVs.</p>
-      <div class="price-badge">₱850<span style="font-size:1rem;"> / 4L</span></div>
-      <div class="price-note">Free oil filter check</div>
+    <div class="lube-card" data-aos="flip-right"><div class="lube-icon"><i class="fas fa-oil-can"></i></div><h3>Shell Helix Ultra</h3><div class="fuel-tag">Fully Synthetic</div><p class="fuel-desc">Ultimate protection and performance. For premium cars and SUVs.</p><div class="price-badge">₱850<span style="font-size:1rem;"> / 4L</span></div><div class="price-note">Free oil filter check</div></div>
+    <div class="lube-card" data-aos="flip-right" data-aos-delay="100"><div class="lube-icon"><i class="fas fa-tint"></i></div><h3>Shell Helix HX7</h3><div class="fuel-tag">Semi-Synthetic</div><p class="fuel-desc">Excellent sludge protection for daily drivers.</p><div class="price-badge">₱650<span style="font-size:1rem;"> / 4L</span></div><div class="price-note">Best for city driving</div></div>
+    <div class="lube-card" data-aos="flip-right" data-aos-delay="200"><div class="lube-icon"><i class="fas fa-microchip"></i></div><h3>Shell Helix HX5</h3><div class="fuel-tag">Mineral</div><p class="fuel-desc">Reliable protection for older engines and economy cars.</p><div class="price-badge">₱450<span style="font-size:1rem;"> / 4L</span></div><div class="price-note">Value-packed</div></div>
+    <div class="lube-card" data-aos="flip-right" data-aos-delay="300"><div class="lube-icon"><i class="fas fa-motorcycle"></i></div><h3>Shell Advance 4T</h3><div class="fuel-tag">Motorcycle Oil</div><p class="fuel-desc">Specially formulated for 4-stroke motorcycles. Smooth shifting.</p><div class="price-badge">₱280<span style="font-size:1rem;"> / 1L</span></div><div class="price-note">Available for scooters & underbones</div></div>
+  </div>
+</div>
+
+<!-- PAYMENT METHODS SECTION - Fleet Card, Credit Card, Debit Card -->
+<div class="container">
+  <div class="payment-section" data-aos="fade-up">
+    <h2 class="section-title" style="margin-bottom: 10px;">💳 Flexible Payment Options</h2>
+    <p class="section-sub" style="margin-bottom: 30px;">We accept all major payment methods for your convenience</p>
+    <div class="payment-grid">
+      <div class="payment-card" data-aos="zoom-in">
+        <div class="payment-icon"><i class="fas fa-truck"></i></div>
+        <h3>Shell Fleet Card</h3>
+        <div class="fuel-tag">For Businesses & Fleets</div>
+        <p class="fuel-desc">Manage your fleet expenses with Shell Fleet Card. Track fuel consumption, get consolidated billing, and enjoy exclusive fleet discounts.</p>
+        <div class="price-note"><i class="fas fa-check-circle"></i> Apply at the station</div>
+      </div>
+      <div class="payment-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="payment-icon"><i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i></div>
+        <h3>Credit Cards</h3>
+        <div class="fuel-tag">Visa | Mastercard | JCB | Amex</div>
+        <p class="fuel-desc">All major credit cards accepted. Earn rewards points from your bank while fueling up at Shell Sanito.</p>
+        <div class="price-note"><i class="fas fa-shield-alt"></i> Secure & contactless payments</div>
+      </div>
+      <div class="payment-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="payment-icon"><i class="fas fa-credit-card"></i> <i class="fas fa-mobile-alt"></i></div>
+        <h3>Debit Cards & Digital Wallets</h3>
+        <div class="fuel-tag">Debit | GCash | PayMaya</div>
+        <p class="fuel-desc">Pay directly from your bank account using debit cards. Also accepting GCash, PayMaya, and other digital wallets.</p>
+        <div class="price-note"><i class="fas fa-mobile-alt"></i> Scan-to-pay available</div>
+      </div>
     </div>
-    <div class="lube-card" data-aos="flip-right" data-aos-delay="100">
-      <div class="lube-icon"><i class="fas fa-tint"></i></div>
-      <h3>Shell Helix HX7</h3>
-      <div class="fuel-tag">Semi-Synthetic</div>
-      <p class="fuel-desc">Excellent sludge protection for daily drivers.</p>
-      <div class="price-badge">₱650<span style="font-size:1rem;"> / 4L</span></div>
-      <div class="price-note">Best for city driving</div>
-    </div>
-    <div class="lube-card" data-aos="flip-right" data-aos-delay="200">
-      <div class="lube-icon"><i class="fas fa-microchip"></i></div>
-      <h3>Shell Helix HX5</h3>
-      <div class="fuel-tag">Mineral</div>
-      <p class="fuel-desc">Reliable protection for older engines and economy cars.</p>
-      <div class="price-badge">₱450<span style="font-size:1rem;"> / 4L</span></div>
-      <div class="price-note">Value-packed</div>
-    </div>
-    <div class="lube-card" data-aos="flip-right" data-aos-delay="300">
-      <div class="lube-icon"><i class="fas fa-motorcycle"></i></div>
-      <h3>Shell Advance 4T</h3>
-      <div class="fuel-tag">Motorcycle Oil</div>
-      <p class="fuel-desc">Specially formulated for 4-stroke motorcycles. Smooth shifting.</p>
-      <div class="price-badge">₱280<span style="font-size:1rem;"> / 1L</span></div>
-      <div class="price-note">Available for scooters & underbones</div>
+    <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f0f4f9; border-radius: 40px;">
+      <span class="fleet-badge"><i class="fas fa-building"></i> Corporate Accounts Welcome</span>
+      <span class="fleet-badge" style="background: var(--shell-red); margin-left: 12px;"><i class="fas fa-percent"></i> Fleet Discounts Available</span>
+      <span class="fleet-badge" style="background: #008000; margin-left: 12px;"><i class="fas fa-lock"></i> 100% Secure Transactions</span>
     </div>
   </div>
 </div>
@@ -404,24 +331,14 @@
 <!-- SHELL GO+ REWARDS INFO -->
 <div class="container">
   <div class="rewards-highlight" data-aos="zoom-in">
-    <div style="text-align:center;">
-      <i class="fas fa-star" style="font-size:3rem; color:var(--shell-yellow);"></i>
-      <h2 style="color:white; margin-top:10px;">Shell Go+ Rewards Program</h2>
-      <p style="color:#ccdee8;">Earn points, unlock perks, and save more every time you fuel up at Shell Sanito Ipil!</p>
-    </div>
+    <div style="text-align:center;"><i class="fas fa-star" style="font-size:3rem; color:var(--shell-yellow);"></i><h2 style="color:white; margin-top:10px;">Shell Go+ Rewards Program</h2><p style="color:#ccdee8;">Earn points, unlock perks, and save more every time you fuel up at Shell Sanito Ipil!</p></div>
     <div class="rewards-grid">
       <div class="reward-point"><div class="point-number">1 point = ₱1</div><p style="margin-top:10px;">Earn 1 point for every ₱10 spend on fuel, lubricants, and car wash.</p></div>
       <div class="reward-point"><div class="point-number">₱5 discount</div><p style="margin-top:10px;">Redeem 500 points for ₱5 off per liter on your next fuel purchase.</p></div>
       <div class="reward-point"><div class="point-number">Free Car Wash</div><p style="margin-top:10px;">Get a FREE basic car wash when you accumulate 2,000 points.</p></div>
       <div class="reward-point"><div class="point-number">Double Points</div><p style="margin-top:10px;">Every Wednesday — DOUBLE Go+ points on V-Power fuels!</p></div>
     </div>
-    <div style="background:rgba(255,255,255,0.15); border-radius:36px; padding:24px; margin-top:30px;">
-      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;">
-        <div><i class="fas fa-mobile-alt"></i> <strong>Join for Free:</strong> Register at the station or via the Shell Go+ App</div>
-        <div><i class="fas fa-gift"></i> <strong>Birthday Bonus:</strong> 500 extra points on your birthday month!</div>
-        <div><i class="fas fa-chart-line"></i> <strong>Fuel up, earn, enjoy!</strong> Ask our crew for your Go+ card.</div>
-      </div>
-    </div>
+    <div style="background:rgba(255,255,255,0.15); border-radius:36px; padding:24px; margin-top:30px;"><div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:20px;"><div><i class="fas fa-mobile-alt"></i> <strong>Join for Free:</strong> Register at the station or via the Shell Go+ App</div><div><i class="fas fa-gift"></i> <strong>Birthday Bonus:</strong> 500 extra points on your birthday month!</div><div><i class="fas fa-chart-line"></i> <strong>Fuel up, earn, enjoy!</strong> Ask our crew for your Go+ card.</div></div></div>
   </div>
 </div>
 
@@ -429,16 +346,9 @@
 <div class="container">
   <div class="location-highlight" data-aos="fade-right">
     <h3><i class="fas fa-map-pin" style="color: var(--shell-red);"></i> 📍 Prime Location: Beside 7-Eleven & Dr. AMMC Colleges</h3>
-    <div style="margin: 16px 0 12px;">
-      <span class="landmark-badge seven-badge"><i class="fas fa-store"></i> 7-Eleven Sanito — 30 meters away</span>
-      <span class="landmark-badge college-badge"><i class="fas fa-university"></i> Dr. AMMC Colleges — 2-min walk</span>
-    </div>
+    <div style="margin: 16px 0 12px;"><span class="landmark-badge seven-badge"><i class="fas fa-store"></i> 7-Eleven Sanito — 30 meters away</span><span class="landmark-badge college-badge"><i class="fas fa-university"></i> Dr. AMMC Colleges — 2-min walk</span></div>
     <p>Our Shell gas station is located along the National Highway, directly beside the well-known <strong>7-Eleven branch in Sanito</strong> and just across from <strong>Dr. AMMC Colleges</strong>.</p>
-    <div class="proximity-grid">
-      <div class="prox-card"><i class="fas fa-walking"></i><h4>7-Eleven Sanito</h4><p>Adjacent — grab coffee & snacks.</p></div>
-      <div class="prox-card"><i class="fas fa-school"></i><h4>Dr. AMMC Colleges</h4><p>2-minute walk. Perfect for students.</p></div>
-      <div class="prox-card"><i class="fas fa-gas-pump"></i><h4>Convenience Hub</h4><p>Shell Select + 7-Eleven.</p></div>
-    </div>
+    <div class="proximity-grid"><div class="prox-card"><i class="fas fa-walking"></i><h4>7-Eleven Sanito</h4><p>Adjacent — grab coffee & snacks.</p></div><div class="prox-card"><i class="fas fa-school"></i><h4>Dr. AMMC Colleges</h4><p>2-minute walk. Perfect for students.</p></div><div class="prox-card"><i class="fas fa-gas-pump"></i><h4>Convenience Hub</h4><p>Shell Select + 7-Eleven.</p></div></div>
   </div>
 </div>
 
@@ -446,41 +356,22 @@
 <div class="container">
   <div class="features" data-aos="fade-up">
     <h2 class="section-title">Why stop at Shell Sanito?</h2>
-    <div class="features-grid">
-      <div class="feature-item"><i class="fas fa-clock"></i><h4>Extended Hours</h4><p>6AM – 10PM daily</p></div>
-      <div class="feature-item"><i class="fas fa-car-wash"></i><h4>Car Care</h4><p>Wash, air & water</p></div>
-      <div class="feature-item"><i class="fas fa-store"></i><h4>Shell Select</h4><p>Snacks & drinks</p></div>
-      <div class="feature-item"><i class="fas fa-hand-holding-usd"></i><h4>Go+ Rewards</h4><p>Earn points per liter</p></div>
-    </div>
+    <div class="features-grid"><div class="feature-item"><i class="fas fa-clock"></i><h4>Extended Hours</h4><p>6AM – 10PM daily</p></div><div class="feature-item"><i class="fas fa-car-wash"></i><h4>Car Care</h4><p>Wash, air & water</p></div><div class="feature-item"><i class="fas fa-store"></i><h4>Shell Select</h4><p>Snacks & drinks</p></div><div class="feature-item"><i class="fas fa-hand-holding-usd"></i><h4>Go+ Rewards</h4><p>Earn points per liter</p></div><div class="feature-item"><i class="fas fa-credit-card"></i><h4>All Cards Accepted</h4><p>Fleet | Credit | Debit</p></div></div>
   </div>
 </div>
 
 <!-- MAP + CTA -->
 <div class="container">
   <div class="cta-section" data-aos="zoom-in-up">
-    <div class="cta-text">
-      <h3><i class="fas fa-map-marked-alt"></i> Right beside 7-Eleven Sanito</h3>
-      <p>📍 Shell Sanito Station — National Highway, adjacent to 7-Eleven and near Dr. AMMC Colleges.</p>
-    </div>
+    <div class="cta-text"><h3><i class="fas fa-map-marked-alt"></i> Right beside 7-Eleven Sanito</h3><p>📍 Shell Sanito Station — National Highway, adjacent to 7-Eleven and near Dr. AMMC Colleges.</p></div>
     <button class="btn-primary btn-large" id="mapDirectionBtn"><i class="fas fa-directions"></i> Navigate to Shell</button>
   </div>
-  <div style="border-radius: 36px; overflow: hidden; margin-bottom: 20px;">
-    <iframe width="100%" height="380" style="border:0; display:block;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Sanito+Ipil+Zamboanga+Sibugay+Philippines&center=7.7825,122.5850&zoom=17"></iframe>
-    <div style="background: white; padding: 12px 20px; text-align: center;"><i class="fas fa-flag-checkered"></i> Shell Sanito Ipil — beside 7-Eleven, near Dr. AMMC Colleges.</div>
-  </div>
+  <div style="border-radius: 36px; overflow: hidden; margin-bottom: 20px;"><iframe width="100%" height="380" style="border:0; display:block;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Sanito+Ipil+Zamboanga+Sibugay+Philippines&center=7.7825,122.5850&zoom=17"></iframe><div style="background: white; padding: 12px 20px; text-align: center;"><i class="fas fa-flag-checkered"></i> Shell Sanito Ipil — beside 7-Eleven, near Dr. AMMC Colleges. All cards accepted.</div></div>
 </div>
 
 <!-- CONTACT -->
 <div class="container" style="text-align: center; margin: 20px auto 50px;">
-  <div style="background: white; border-radius: 48px; padding: 32px; box-shadow: var(--shadow-sm);" data-aos="flip-up">
-    <h3>Need bulk fuel, lubricants, or Go+ inquiries?</h3>
-    <p style="margin: 12px 0 20px;">Contact our station manager. We're right beside 7-Eleven Sanito!</p>
-    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-      <span><i class="fas fa-phone-alt" style="color:var(--shell-red);"></i> (062) 123 4567</span>
-      <span><i class="fab fa-facebook"></i> Shell Sanito Ipil</span>
-      <span><i class="fas fa-envelope"></i> sanito@shell.com.ph</span>
-    </div>
-  </div>
+  <div style="background: white; border-radius: 48px; padding: 32px; box-shadow: var(--shadow-sm);" data-aos="flip-up"><h3>Need bulk fuel, lubricants, fleet card, or Go+ inquiries?</h3><p style="margin: 12px 0 20px;">Contact our station manager. We're right beside 7-Eleven Sanito!</p><div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;"><span><i class="fas fa-phone-alt" style="color:var(--shell-red);"></i> (062) 123 4567</span><span><i class="fab fa-facebook"></i> Shell Sanito Ipil</span><span><i class="fas fa-envelope"></i> sanito@shell.com.ph</span></div></div>
 </div>
 
 <footer class="footer">
@@ -489,10 +380,11 @@
       <span><i class="fab fa-facebook-f"></i> Shell Sanito Ipil</span>
       <span><i class="fas fa-store"></i> Beside 7-Eleven Sanito</span>
       <span><i class="fas fa-university"></i> Near Dr. AMMC Colleges</span>
-      <span><i class="fas fa-star"></i> Go+ Rewards Available</span>
+      <span><i class="fas fa-star"></i> Go+ Rewards</span>
+      <span><i class="fas fa-credit-card"></i> Fleet | Credit | Debit</span>
     </div>
     <p>© 2026 Shell Sanito Station — Fuel, Lubricants & Rewards. Prices subject to change.</p>
-    <p style="margin-top: 8px;"><i class="fas fa-check-circle"></i> V-Power Gas: ₱72.50/L | V-Power Diesel: ₱68.00/L | FuelSave Gas: ₱65.00/L | FuelSave Diesel: ₱62.50/L | Shell Helix oils from ₱450</p>
+    <p style="margin-top: 8px;"><i class="fas fa-check-circle"></i> V-Power Gas: ₱72.50/L | V-Power Diesel: ₱68.00/L | FuelSave Gas: ₱65.00/L | FuelSave Diesel: ₱62.50/L | Now Accepting Fleet Cards, Credit Cards & Debit Cards</p>
   </div>
 </footer>
 
@@ -501,52 +393,25 @@
   AOS.init({ once: false, duration: 800, offset: 100 });
   
   let slideIndex = 1;
-  
   function showSlides(n) {
     let slides = document.getElementsByClassName("slide");
     let dots = document.getElementsByClassName("dot");
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active-dot", "");
-    }
-    if (slides[slideIndex-1]) {
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active-dot";
-    }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+    for (let i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active-dot", ""); }
+    if (slides[slideIndex-1]) { slides[slideIndex-1].style.display = "block"; dots[slideIndex-1].className += " active-dot"; }
   }
-  
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-  
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-  
-  // Initialize slideshow
+  function plusSlides(n) { showSlides(slideIndex += n); }
+  function currentSlide(n) { showSlides(slideIndex = n); }
   showSlides(slideIndex);
-  
-  // Auto slide every 5 seconds
   let autoSlide = setInterval(() => plusSlides(1), 5000);
-  
-  // Pause on hover
   const slideshowContainer = document.querySelector('.slideshow-container');
   if(slideshowContainer) {
     slideshowContainer.addEventListener('mouseenter', () => clearInterval(autoSlide));
-    slideshowContainer.addEventListener('mouseleave', () => { 
-      autoSlide = setInterval(() => plusSlides(1), 5000); 
-    });
+    slideshowContainer.addEventListener('mouseleave', () => { autoSlide = setInterval(() => plusSlides(1), 5000); });
   }
-  
-  // Directions function
-  function openDirections() { 
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Shell Gas Station beside 7-Eleven, Sanito, Ipil, Zamboanga Sibugay, Philippines")}`, '_blank'); 
-  }
-  
+  function openDirections() { window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent("Shell Gas Station beside 7-Eleven, Sanito, Ipil, Zamboanga Sibugay, Philippines")}`, '_blank'); }
   document.getElementById('ctaHeroBtn')?.addEventListener('click', openDirections);
   document.getElementById('mapDirectionBtn')?.addEventListener('click', openDirections);
 </script>
